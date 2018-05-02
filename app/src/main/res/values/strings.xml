@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="about">This application is a learning application that has a text sender and displays the list that is received as a result. It also displays list of the movie titles.</string>
+    <string name="movies_title">Movies</string>
+    <string name="menu_about">About</string>
+    <string name="about_title">About</string>
+    <string name="menu_string">Menu</string>
+    <string name="info">Hello, My name is Betelhem Mengesha. I am originally from Ethiopia, East Africa. This is my 6th quarter here at North Seattle College. In my free time, I like to hike, travel and most of all have quality family time with lovely daughters.</string>
 </resources>
