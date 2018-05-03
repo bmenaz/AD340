@@ -32,6 +32,7 @@ public class DetailScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Movie detail");
     }
 
     @Override

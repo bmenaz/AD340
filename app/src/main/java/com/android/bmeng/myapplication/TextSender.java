@@ -24,6 +24,7 @@ public class TextSender extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Text Sender");
     }
     public void sendMessage(View view) {
         Intent intent = new Intent(this, TextDisplay.class);
@@ -31,6 +32,7 @@ public class TextSender extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

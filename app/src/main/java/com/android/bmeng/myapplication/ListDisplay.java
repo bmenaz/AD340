@@ -37,6 +37,7 @@ public class ListDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Movies");
 
     }
     @Override

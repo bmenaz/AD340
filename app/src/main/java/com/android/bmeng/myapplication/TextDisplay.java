@@ -35,6 +35,7 @@ public class TextDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Text Display");
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

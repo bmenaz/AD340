@@ -23,6 +23,7 @@ public class ZombieLayout extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Zombie Layout");
 
     }
     public void topLeft(View v){

@@ -20,6 +20,7 @@ public class About extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("About");
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
