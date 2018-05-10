@@ -9,20 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:parentActivityName=".TextSender">
+        </activity>
+        <activity android:name=".TextSender">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TextSender" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".TextDisplay" android:parentActivityName=".TextSender"/>
-        <activity android:name=".ZombieLayout" android:parentActivityName=".MainActivity">
+        <activity android:name=".TextDisplay" android:parentActivityName=".TextSender">
         </activity>
-        <activity android:name=".ListDisplay" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ZombieLayout" android:parentActivityName=".TextSender">
+        </activity>
+        <activity android:name=".ListDisplay" android:parentActivityName=".TextSender"/>
         <activity android:name=".DetailScreen" android:parentActivityName=".ListDisplay"/>
-        <activity android:name=".About" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".About" android:parentActivityName=".TextSender"></activity>
     </application>
 
 </manifest>
