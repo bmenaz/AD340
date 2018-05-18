@@ -36,7 +36,7 @@ public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<ViewHold
         public ViewHolder(View v) {
             super(v);
             mTextView = v.findViewById(R.id.textView);
-            image = (NetworkImageView)v.findViewById(R.id.image);
+            image = v.findViewById(R.id.image);
         }
     }
 
@@ -74,10 +74,10 @@ public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<ViewHold
         holder.mTextView.setText(camera.description);
 
         if(camera.type.equals("sdot")){
-            holder.image.setImageUrl(" http://www.seattle.gov/trafficcams/images/" + camera.url, mImageLoader);;
+            holder.image.setImageUrl("http://www.seattle.gov/trafficcams/images/" + camera.url, mImageLoader);;
         }
         else{
-            holder.image.setImageUrl(" http://images.wsdot.wa.gov/nw/" + camera.url, mImageLoader);
+            holder.image.setImageUrl("http://images.wsdot.wa.gov/nw/" + camera.url, mImageLoader);
         }
     }
 

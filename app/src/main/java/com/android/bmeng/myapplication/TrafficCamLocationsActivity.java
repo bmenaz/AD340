@@ -1,6 +1,7 @@
 package com.android.bmeng.myapplication;
 
 
+import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -32,11 +33,14 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
     private RecyclerViewTrafficCamAdapter adapter;
     ArrayList<Camera> cameraList;
     private RequestQueue mRequestQueue;
+    private VolleyCallback volleyCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traffic_cam_locations);
+
+        cameraList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.my_recycler_view);
         layoutManager = new android.support.v7.widget.LinearLayoutManager(this);
@@ -47,14 +51,16 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
         //fetch the data and pass it in adapter
         mRequestQueue = Volley.newRequestQueue(getApplicationContext());
 
+        Toast.makeText(getApplicationContext(), "Connection status: "  + getActiveNetworkInfo().getState().toString()
+                , Toast.LENGTH_LONG).show();
+
         String url = "https://web6.seattle.gov/Travelers/api/Map/Data?zoomId=13&type=2";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        jsonData = response;
-                        //Log.d("JSON Value", response.toString());
+                        volleyCallback.onSuccess(response);
                     }
                 }, new Response.ErrorListener() {
 
@@ -67,35 +73,42 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
         mRequestQueue.add(jsonObjectRequest);
 
         if(jsonData == null){
-            Log.d("JSON", "JSON is empty");
+            Log.d("JSON th", "JSON is empty");
         }
-
-        Toast.makeText(getApplicationContext(), "Connection status" + getActiveNetworkInfo().getState().toString(),
-                Toast.LENGTH_LONG).show();
+        else{
+            Log.d("JSON with", jsonData.toString());
+        }
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        /*JSONArray features;
-        try {
-            features = jsonData.getJSONArray("Features");
-            for(int i = 0; i < features.length(); i ++){
-                JSONObject feature = features.getJSONObject(i);
-                JSONArray cameras = feature.getJSONArray("Cameras");
-                for(int j = 0; j < cameras.length(); j ++){
-                    JSONObject camera = cameras.getJSONObject(j);
-                    cameraList.add(new Camera(camera.getString("Description"), camera.getString("ImageUrl"),
-                            camera.getString("Type")));
-                }
-            }
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+        volleyCallback = new VolleyCallback(){
+            @Override
+            public void onSuccess(JSONObject result) {
+                jsonData = result;
+                JSONArray features;
+                try {
+                    features = jsonData.getJSONArray("Features");
+                    for(int i = 0; i < features.length(); i ++){
+                        JSONObject feature = features.getJSONObject(i);
+                        JSONArray cameras = feature.getJSONArray("Cameras");
+                        for(int j = 0; j < cameras.length(); j ++){
+                            JSONObject camera = cameras.getJSONObject(j);
+                            cameraList.add(new Camera(camera.getString("Description"), camera.getString("ImageUrl"),
+                                    camera.getString("Type")));
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                adapter.notifyDataSetChanged();
+            }
+        };
         }
-        adapter.notifyDataSetChanged();*/
-    }
 
     public NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager =
@@ -104,4 +117,7 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
         return networkInfo;
     }
 
+    public interface VolleyCallback{
+        void onSuccess(JSONObject result);
+    }
 }
