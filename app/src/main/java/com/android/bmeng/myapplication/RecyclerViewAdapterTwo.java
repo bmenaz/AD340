@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 public class RecyclerViewAdapterTwo extends RecyclerView.Adapter<RecyclerViewAdapterTwo.ViewHolder> {
-    private String[] mDataset;
 
 
+    String[] mDataset;
     private android.content.Context context;
 
     // Provide a reference to the views for each data item
