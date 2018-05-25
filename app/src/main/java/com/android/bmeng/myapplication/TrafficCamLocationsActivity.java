@@ -73,7 +73,7 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
         mRequestQueue.add(jsonObjectRequest);
 
         if(jsonData == null){
-            Log.d("JSON th", "JSON is empty");
+            Log.d("JSON", "JSON is empty");
         }
         else{
             Log.d("JSON with", jsonData.toString());
@@ -98,7 +98,7 @@ public class TrafficCamLocationsActivity extends AppCompatActivity {
                         for(int j = 0; j < cameras.length(); j ++){
                             JSONObject camera = cameras.getJSONObject(j);
                             cameraList.add(new Camera(camera.getString("Description"), camera.getString("ImageUrl"),
-                                    camera.getString("Type")));
+                                    camera.getString("Type"), null));
                         }
                     }
 

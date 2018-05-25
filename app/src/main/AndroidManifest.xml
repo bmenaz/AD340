@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,16 +15,14 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".TextSender"></activity>
-        <activity android:name=".TextSender">
-
-        </activity>
+            android:parentActivityName=".TextSender" />
+        <activity android:name=".TextSender"></activity>
         <activity
             android:name=".TextDisplay"
-            android:parentActivityName=".TextSender"></activity>
+            android:parentActivityName=".TextSender" />
         <activity
             android:name=".ZombieLayout"
-            android:parentActivityName=".TextSender"></activity>
+            android:parentActivityName=".TextSender" />
         <activity
             android:name=".ListDisplay"
             android:parentActivityName=".TextSender" />
@@ -34,12 +33,22 @@
             android:name=".About"
             android:parentActivityName=".TextSender" />
         <activity android:name=".TrafficCamLocationsActivity">
+        </activity>
+        <activity android:name=".LocationIdentifierActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name = "com.google.android.geo.API_KEY"
+            android:value = "AIzaSyB-v9Qoqn7iENerFTK8rxnTaLaIFXjc7pI"
+        />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
     </application>
 
 </manifest>
