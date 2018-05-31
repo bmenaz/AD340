@@ -16,7 +16,13 @@
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".TextSender" />
-        <activity android:name=".TextSender"></activity>
+        <activity android:name=".TextSender">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".TextDisplay"
             android:parentActivityName=".TextSender" />
@@ -32,14 +38,11 @@
         <activity
             android:name=".About"
             android:parentActivityName=".TextSender" />
-        <activity android:name=".TrafficCamLocationsActivity">
+        <activity android:name=".TrafficCamLocationsActivity"
+                  android:parentActivityName=".TextSender">
         </activity>
-        <activity android:name=".LocationIdentifierActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".LocationIdentifierActivity"
+                  android:parentActivityName=".TextSender">
         </activity>
         <meta-data
             android:name = "com.google.android.geo.API_KEY"

@@ -10,4 +10,15 @@
         android:icon="@drawable/ic_info_black_24px"
         android:title="@string/about_title"
         />
+    <item
+        android:id="@+id/location"
+        android:title="Location information"
+        android:icon="@drawable/ic_baseline_location_on_24px"
+        />
+    <item
+        android:id="@+id/traffic_cam"
+        android:title="Traffic Cameras"
+        android:icon="@drawable/ic_baseline_linked_camera_24px"
+        />
+
 </menu>
