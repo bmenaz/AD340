@@ -1,4 +1,4 @@
-package com.android.bmeng.myapplication;
+package com.bmeng.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;

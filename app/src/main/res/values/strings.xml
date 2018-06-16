@@ -6,5 +6,5 @@
     <string name="about_title">About</string>
     <string name="menu_string">Menu</string>
     <string name="info">Hello, My name is Betelhem Mengesha. I am originally from Ethiopia, East Africa. This is my 6th quarter here at North Seattle College. In my free time, I like to hike, travel and most of all have quality family time with lovely daughters.</string>
-    <string name="shared_preference_key">com.android.bmeng.myapplication.main.pref_key</string>
+    <string name="shared_preference_key">com.bmeng.myapplication.main.pref_key</string>
 </resources>

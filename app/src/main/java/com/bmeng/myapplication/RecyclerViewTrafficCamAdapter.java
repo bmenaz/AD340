@@ -1,21 +1,19 @@
-package com.android.bmeng.myapplication;
+package com.bmeng.myapplication;
 
-import com.android.bmeng.myapplication.RecyclerViewTrafficCamAdapter.ViewHolder;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.v7.widget.RecyclerView;
+import android.util.LruCache;
+import android.view.View;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.LruCache;
-import android.view.View;
-
 import java.util.ArrayList;
 
-public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<RecyclerViewTrafficCamAdapter.ViewHolder> {
 
 
     private ImageLoader mImageLoader;
@@ -59,7 +57,7 @@ public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<ViewHold
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ViewHolder onCreateViewHolder(android.view.ViewGroup parent,
+    public RecyclerViewTrafficCamAdapter.ViewHolder onCreateViewHolder(android.view.ViewGroup parent,
                                                                 int viewType) {
         // create a new view
         View v = android.view.LayoutInflater.from(context).inflate(R.layout.traffic_cam_layout, parent, false);
@@ -69,7 +67,7 @@ public class RecyclerViewTrafficCamAdapter extends RecyclerView.Adapter<ViewHold
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerViewTrafficCamAdapter.ViewHolder holder, int position) {
         Camera camera = cameraList.get(position);
         holder.mTextView.setText(camera.description);
 

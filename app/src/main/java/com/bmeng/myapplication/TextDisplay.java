@@ -1,36 +1,42 @@
-package com.android.bmeng.myapplication;
+package com.bmeng.myapplication;
 
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-
+public class TextDisplay extends AppCompatActivity {
+    public static final String TAG = "TextDisplay";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate() Restoring previous state");
+        } else {
+            Log.d(TAG, "onCreate() No saved state available");
+        }
+        setContentView(R.layout.activity_text_display2);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(TextSender.EXTRA_MESSAGE);
+
+        // Capture the layout's TextView and set the string as its text
+        TextView textView = findViewById(R.id.textView2);
+        textView.setText(message);
 
         //toolbar - might be used as a fragment
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Text Sender");
+        actionBar.setTitle("Text Display");
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId()==R.id.settings)

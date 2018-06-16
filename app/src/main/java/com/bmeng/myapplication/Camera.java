@@ -1,4 +1,4 @@
-package com.android.bmeng.myapplication;
+package com.bmeng.myapplication;
 
 import com.google.android.gms.maps.model.LatLng;
 
